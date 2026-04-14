@@ -1,3 +1,5 @@
+git push -u origin main
+
 # Normalize text files to LF in the repository
 * text=auto eol=lf
 
