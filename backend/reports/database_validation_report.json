@@ -1,0 +1,94 @@
+{
+  "mongo_uri": "mongodb://127.0.0.1:27017/hustlehub",
+  "database": "hustlehub",
+  "timestamp": "2026-04-09T17:26:28.172049Z",
+  "ping_ms": 20.75,
+  "collections": {
+    "users": {
+      "count": 480,
+      "count_latency_ms": 128.6,
+      "missing_documents": 0,
+      "sample_missing": []
+    },
+    "videos": {
+      "count": 2400,
+      "count_latency_ms": 23.59,
+      "missing_documents": 0,
+      "sample_missing": []
+    },
+    "likes": {
+      "count": 8663,
+      "count_latency_ms": 36.57,
+      "missing_documents": 0,
+      "sample_missing": []
+    },
+    "follows": {
+      "count": 3688,
+      "count_latency_ms": 15.17,
+      "missing_documents": 0,
+      "sample_missing": []
+    },
+    "recommendation_feedback": {
+      "count": 10764,
+      "count_latency_ms": 83.14,
+      "missing_documents": 0,
+      "sample_missing": []
+    }
+  },
+  "relationships": {
+    "videos": {
+      "user_id": {
+        "target_collection": "users",
+        "orphans": 0,
+        "sample_orphans": []
+      }
+    },
+    "likes": {
+      "user_id": {
+        "target_collection": "users",
+        "orphans": 0,
+        "sample_orphans": []
+      },
+      "video_id": {
+        "target_collection": "videos",
+        "orphans": 0,
+        "sample_orphans": []
+      }
+    },
+    "follows": {
+      "follower_id": {
+        "target_collection": "users",
+        "orphans": 0,
+        "sample_orphans": []
+      },
+      "following_id": {
+        "target_collection": "users",
+        "orphans": 0,
+        "sample_orphans": []
+      }
+    },
+    "recommendation_feedback": {
+      "user_id": {
+        "target_collection": "users",
+        "orphans": 0,
+        "sample_orphans": []
+      },
+      "video_id": {
+        "target_collection": "videos",
+        "orphans": 0,
+        "sample_orphans": []
+      }
+    },
+    "duplicates": {
+      "likes": 0,
+      "follows": 0
+    }
+  },
+  "summary": {
+    "ok": true,
+    "total_missing_documents": 0,
+    "total_orphan_references": 0,
+    "total_duplicate_pairs": 0,
+    "validation_time_ms": 358.56
+  }
+}

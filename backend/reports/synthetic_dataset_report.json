@@ -1,0 +1,164 @@
+{
+  "timestamp": "2026-04-09T17:26:27.109923Z",
+  "batch_id": "20260409172534",
+  "seed": 42,
+  "reset": false,
+  "users": 240,
+  "videos": 1200,
+  "likes": 4367,
+  "follows": 1860,
+  "feedback_events": 5343,
+  "positive_feedback": 3200,
+  "user_level_counts": {
+    "intermediate": 111,
+    "beginner": 78,
+    "advanced": 51
+  },
+  "video_difficulty_counts": {
+    "intermediate": 508,
+    "beginner": 262,
+    "advanced": 430
+  },
+  "video_category_counts": {
+    "data-engineering": 133,
+    "devops": 130,
+    "dsa": 146,
+    "web": 127,
+    "product-analytics": 131,
+    "backend": 127,
+    "cloud-security": 80,
+    "ml": 118,
+    "system-design": 106,
+    "mobile": 102
+  },
+  "sample_users": [
+    {
+      "username": "demo_user_09172534",
+      "level": "intermediate",
+      "skills": [
+        "react",
+        "javascript",
+        "backend",
+        "ui"
+      ],
+      "activity_score": 48
+    },
+    {
+      "username": "mira-khanna_09172534_001",
+      "level": "intermediate",
+      "skills": [
+        "dsa",
+        "algorithms",
+        "leetcode",
+        "data-structures",
+        "react",
+        "javascript",
+        "typescript",
+        "frontend",
+        "ui",
+        "machine-learning",
+        "data-science",
+        "pytorch",
+        "numpy",
+        "shipping",
+        "teamwork"
+      ],
+      "activity_score": 85
+    },
+    {
+      "username": "shreya-bose_09172534_002",
+      "level": "intermediate",
+      "skills": [
+        "devops",
+        "docker",
+        "kubernetes",
+        "ci/cd",
+        "dsa",
+        "algorithms",
+        "leetcode",
+        "data-structures",
+        "backend",
+        "api",
+        "fastapi",
+        "python",
+        "shipping",
+        "teamwork"
+      ],
+      "activity_score": 74
+    },
+    {
+      "username": "tanvi-reddy_09172534_003",
+      "level": "intermediate",
+      "skills": [
+        "system-design",
+        "architecture",
+        "scalability",
+        "distributed-systems",
+        "sql",
+        "postgres",
+        "data-engineering",
+        "analytics",
+        "devops",
+        "docker",
+        "kubernetes",
+        "ci/cd",
+        "shipping",
+        "teamwork"
+      ],
+      "activity_score": 87
+    },
+    {
+      "username": "shreya-verma_09172534_004",
+      "level": "intermediate",
+      "skills": [
+        "sql",
+        "postgres",
+        "data-engineering",
+        "analytics",
+        "system-design",
+        "architecture",
+        "scalability",
+        "distributed-systems",
+        "machine-learning",
+        "data-science",
+        "pytorch",
+        "numpy",
+        "shipping",
+        "teamwork"
+      ],
+      "activity_score": 65
+    }
+  ],
+  "sample_videos": [
+    {
+      "title": "Data Engineering patterns with interview prep",
+      "difficulty_level": "intermediate",
+      "duration_seconds": 187,
+      "category": "data-engineering"
+    },
+    {
+      "title": "Devops in practice: portfolio quality",
+      "difficulty_level": "beginner",
+      "duration_seconds": 73,
+      "category": "devops"
+    },
+    {
+      "title": "Devops setup for reliable shipping",
+      "difficulty_level": "advanced",
+      "duration_seconds": 158,
+      "category": "devops"
+    },
+    {
+      "title": "Data Engineering made practical with production patterns",
+      "difficulty_level": "intermediate",
+      "duration_seconds": 43,
+      "category": "data-engineering"
+    },
+    {
+      "title": "Dsa: mastering clean architecture",
+      "difficulty_level": "intermediate",
+      "duration_seconds": 164,
+      "category": "dsa"
+    }
+  ]
+}
