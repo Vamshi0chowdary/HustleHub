@@ -9,7 +9,6 @@ import { getRecommendedUsers } from '@/lib/api/recommendations'
 import type { RecommendedUser } from '@/lib/api/types'
 
 export default function DiscoverPage() {
-  const { accessToken } = useAuth()
   const [users, setUsers] = useState<RecommendedUser[]>([])
   const [loading, setLoading] = useState(true)
   const [refreshing, setRefreshing] = useState(false)
@@ -17,10 +16,6 @@ export default function DiscoverPage() {
 
   const fetchUsers = useCallback(
     async (mode: 'initial' | 'refresh' = 'initial') => {
-      if (!accessToken) {
-        return
-      }
-
       setError('')
       if (mode === 'initial') {
         setLoading(true)
@@ -29,7 +24,7 @@ export default function DiscoverPage() {
       }
 
       try {
-        const response = await getRecommendedUsers(accessToken, 18)
+        const response = await getRecommendedUsers(18)
         setUsers(response.users)
       } catch (requestError) {
         const message =
@@ -42,7 +37,7 @@ export default function DiscoverPage() {
         setRefreshing(false)
       }
     },
-    [accessToken]
+    []
   )
 
   useEffect(() => {

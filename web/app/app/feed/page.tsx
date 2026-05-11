@@ -24,7 +24,6 @@ function nextQueue(current: VideoFeedItem[], consumedId: string): VideoFeedItem[
 }
 
 export default function FeedPage() {
-  const { accessToken } = useAuth()
   const [videos, setVideos] = useState<VideoFeedItem[]>([])
   const [loading, setLoading] = useState(true)
   const [refreshing, setRefreshing] = useState(false)
@@ -33,9 +32,6 @@ export default function FeedPage() {
 
   const fetchFeed = useCallback(
     async (mode: 'initial' | 'refresh' = 'initial') => {
-      if (!accessToken) {
-        return
-      }
       setError('')
       if (mode === 'initial') {
         setLoading(true)
@@ -44,7 +40,7 @@ export default function FeedPage() {
       }
 
       try {
-        const data = await getRecommendedFeed(accessToken, 20)
+        const data = await getRecommendedFeed(20)
         setVideos(data.videos)
       } catch (requestError) {
         const message =
@@ -57,7 +53,7 @@ export default function FeedPage() {
         setRefreshing(false)
       }
     },
-    [accessToken]
+    []
   )
 
   useEffect(() => {
@@ -66,16 +62,12 @@ export default function FeedPage() {
 
   const handleAction = useCallback(
     async (videoId: string, action: FeedbackAction) => {
-      if (!accessToken) {
-        return
-      }
-
       const snapshot = videos
       setPendingByVideo((prev) => ({ ...prev, [videoId]: action }))
       setVideos((current) => nextQueue(current, videoId))
 
       try {
-        await sendRecommendationFeedback(accessToken, {
+        await sendRecommendationFeedback({
           video_id: videoId,
           action,
           watch_time_ratio: WATCH_RATIO_BY_ACTION[action],
@@ -96,7 +88,7 @@ export default function FeedPage() {
         setPendingByVideo((prev) => ({ ...prev, [videoId]: null }))
       }
     },
-    [accessToken, fetchFeed, videos]
+    [fetchFeed, videos]
   )
 
   const statusPill = useMemo(() => {

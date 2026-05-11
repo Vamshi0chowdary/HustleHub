@@ -2,14 +2,12 @@ import axios, { AxiosError } from 'axios'
 import type { ApiError } from './types'
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL?.trim()
-
-if (!API_BASE_URL) {
-  throw new Error('NEXT_PUBLIC_API_BASE_URL is required and must point to your backend URL')
-}
+const FALLBACK_API_BASE_URL = 'http://localhost:8000'
 
 export const apiClient = axios.create({
-  baseURL: API_BASE_URL,
+  baseURL: API_BASE_URL || FALLBACK_API_BASE_URL,
   timeout: 15000,
+  withCredentials: true,
   headers: {
     'Content-Type': 'application/json',
   },
@@ -17,9 +15,9 @@ export const apiClient = axios.create({
 
 export function toApiError(error: unknown): ApiError {
   if (axios.isAxiosError(error)) {
-    const axiosError = error as AxiosError<{ detail?: string }>
+    const axiosError = error as AxiosError<{ detail?: string; message?: string; error?: string }>
     const status = axiosError.response?.status ?? 500
-    const detail = axiosError.response?.data?.detail
+    const detail = axiosError.response?.data?.message ?? axiosError.response?.data?.detail ?? axiosError.response?.data?.error
     return {
       status,
       message: detail ?? axiosError.message ?? 'Request failed',
